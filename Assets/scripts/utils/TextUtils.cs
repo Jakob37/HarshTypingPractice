@@ -1,38 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
 
-public class EntryText : MonoBehaviour {
+public static class TextUtils {
 
-    private string targetText = "This is a target text";
-    private string typedText;
+    public static string GenerateVisualText(string target_text, string typed_text) {
 
-    private Text myText;
-
-	void Start () {
-
-        typedText = "";
-        myText = GetComponent<Text>();
-        myText.text = "";
-	}
-
-    void Update() {
-
-        if (Input.GetKeyDown(KeyCode.Backspace) && typedText.Length > 0) {
-            typedText = typedText.Substring(0, typedText.Length - 1);
-        }
-        else {
-            foreach (char c in Input.inputString) {
-                //print(c);
-                typedText += c;
-            }
-        }
-
-        string visual_text = GenerateVisualText(targetText, typedText);
-        myText.text = visual_text;
-    }
-
-    private string GenerateVisualText(string target_text, string typed_text) {
+        // Generates rich colorized string based on type text compared
+        // to target string
 
         string green_tag = "<color=\"#009900\">{0}</color>";
         string red_tag = "<color=\"#990000\">{0}</color>";
@@ -45,7 +19,7 @@ public class EntryText : MonoBehaviour {
 
             string target_char = target_text.Substring(i, 1);
 
-            if (i < typedText.Length) {
+            if (i < typed_text.Length) {
 
                 string typed_char = typed_text.Substring(i, 1);
 
@@ -56,7 +30,7 @@ public class EntryText : MonoBehaviour {
                     add_char = string.Format(red_tag, target_char);
                 }
             }
-            else if (i == typedText.Length) {
+            else if (i == typed_text.Length) {
                 if (target_char == " ") {
                     add_char = string.Format(yellow_tag, "_");
                 }
