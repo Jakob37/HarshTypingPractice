@@ -33,6 +33,9 @@ public class Archer : MonoBehaviour {
             current_bowstring_count -= 1;
             audio_source_collection.PlayClip(AudioSourceCollection.AudioSourceKey.bow_snap);
         }
+        else if (entry_text.WasTextEntered()) {
+            audio_source_collection.PlayClip(AudioSourceCollection.AudioSourceKey.key_tap);
+        }
     }
 
     private void FireLogic() {

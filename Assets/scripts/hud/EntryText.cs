@@ -13,6 +13,9 @@ public class EntryText : MonoBehaviour {
     private string target_text = "This is a target text";
     private string typed_text;
 
+    private bool was_text_entered;
+    public bool WasTextEntered() { return was_text_entered; }
+
     public bool TextFullyTyped() {
         return target_text == typed_text;
     }
@@ -54,6 +57,8 @@ public class EntryText : MonoBehaviour {
 
     private void Update() {
 
+        was_text_entered = false;
+
         if (Input.GetKeyDown(KeyCode.Backspace) && typed_text.Length > 0) {
             typed_text = typed_text.Substring(0, typed_text.Length - 1);
         }
@@ -69,6 +74,7 @@ public class EntryText : MonoBehaviour {
                 }
 
                 typed_text += c;
+                was_text_entered = true;
             }
         }
 
