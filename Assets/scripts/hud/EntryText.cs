@@ -7,16 +7,18 @@ public class EntryText : MonoBehaviour {
     public bool punish_mistakes = true;
     private bool should_be_punished;
 
+    private Text my_text;
+    private TextSources text_sources;
+
     private string target_text = "This is a target text";
     private string typed_text;
-
-    private Text myText;
 
     public bool TextFullyTyped() {
         return target_text == typed_text;
     }
 
     public void ResetText() {
+        target_text = text_sources.GetNextLine();
         typed_text = "";
     }
 
@@ -36,14 +38,21 @@ public class EntryText : MonoBehaviour {
         should_be_punished = false;
     }
 
-	void Start () {
+	private void Start () {
 
         typed_text = "";
-        myText = GetComponent<Text>();
-        myText.text = "";
+        my_text = GetComponent<Text>();
+        my_text.text = "";
+
+        text_sources = GetComponent<TextSources>();
+        target_text = text_sources.GetNextLine();
 	}
 
-    void Update() {
+    public void SetNextText() {
+        target_text = text_sources.GetNextLine();
+    }
+
+    private void Update() {
 
         if (Input.GetKeyDown(KeyCode.Backspace) && typed_text.Length > 0) {
             typed_text = typed_text.Substring(0, typed_text.Length - 1);
@@ -65,12 +74,15 @@ public class EntryText : MonoBehaviour {
 
         if (punish_mistakes) {
             if (!target_text.StartsWith(typed_text)) {
+
+                Debug.Log("Punish, target: " + target_text + " typed: " + typed_text);
+
                 should_be_punished = true;
                 typed_text = "";
             }
         }
 
         string visual_text = TextUtils.GenerateVisualText(target_text, typed_text);
-        myText.text = visual_text;
+        my_text.text = visual_text;
     }
 }

@@ -1,0 +1,7 @@
+Type carefully
+Every sentence counts
+Be careful with your bow-strings
+And type with diligence
+This is text typed into a computer
+Simulating a dude with a lot of bow-strings
+if(!typing_correctly) { print("You'll lose a bowstring!"); }
