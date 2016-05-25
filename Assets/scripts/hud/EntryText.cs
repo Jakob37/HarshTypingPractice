@@ -48,6 +48,7 @@ public class EntryText : MonoBehaviour {
         my_text.text = "";
 
         text_sources = GetComponent<TextSources>();
+        Debug.Log(text_sources);
         target_text = text_sources.GetNextLine();
 	}
 
@@ -56,11 +57,8 @@ public class EntryText : MonoBehaviour {
     }
 
     private void Update() {
-<<<<<<< HEAD
 
         was_text_entered = false;
-=======
->>>>>>> 7a0124d066097ba1a0c0869aee9d6c83b03e39a0
 
         if (Input.GetKeyDown(KeyCode.Backspace) && typed_text.Length > 0) {
             typed_text = typed_text.Substring(0, typed_text.Length - 1);

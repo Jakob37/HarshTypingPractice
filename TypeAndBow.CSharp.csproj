@@ -68,7 +68,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\AudioSourceCollection.cs" />
+    <Compile Include="Assets\scripts\AudioSourceCollection.cs" />
+    <Compile Include="Assets\scripts\LevelManager.cs" />
+    <Compile Include="Assets\scripts\StatusText.cs" />
     <Compile Include="Assets\scripts\TextSources.cs" />
     <Compile Include="Assets\scripts\entities\Archer.cs" />
     <Compile Include="Assets\scripts\entities\Arrow.cs" />

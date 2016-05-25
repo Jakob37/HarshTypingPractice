@@ -6,12 +6,8 @@ public class AudioSourceCollection : MonoBehaviour {
 
     public enum AudioSourceKey {
         bow_shoot,
-<<<<<<< HEAD
         bow_snap,
         key_tap
-=======
-        bow_snap
->>>>>>> 7a0124d066097ba1a0c0869aee9d6c83b03e39a0
     }
 
     [System.Serializable]
