@@ -82,8 +82,6 @@ public class EntryText : MonoBehaviour {
         if (punish_mistakes) {
             if (!target_text.StartsWith(typed_text)) {
 
-                Debug.Log("Punish, target: " + target_text + " typed: " + typed_text);
-
                 should_be_punished = true;
                 typed_text = "";
             }
