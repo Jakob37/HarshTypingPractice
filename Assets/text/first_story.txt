@@ -1,0 +1,92 @@
+﻿# Title:A friendly hint before you start
+Type carefully...
+# Title:The beginning
+# Enemies:0
+Once upon a time, there was a man called Arrow-man
+He was an expert, like no others, at keeping Dangers at bay
+His craft was his precision and care
+One slip, and his people was one step closer to Dangers
+He had to extort extrodinary care, or else all would be lost
+# Title:The first encounter
+# Enemies:1
+# Speed:1
+The first time he encountered a Danger, he already knew what to do
+He had to tense his bow every so carefully
+He knew, that one small slip, and so much would be lost
+But he also knew, that he had to make it
+"There is plenty of time", he thought
+Be careful
+*He let loose
+And it was over
+# Title:Some stillness
+# Enemies:0
+After the first encounter the time passed by
+This were quiet, for now
+Things were good, for now
+But he knew that he had to continue honing his skills
+He knew, that one day, he had to take action
+Quickly, with high precision
+He had to continue honing his skills
+# Title:The second encounter
+# Enemies:2
+# Speed:2
+The second time he encountered the Dangers, they were more prepared
+*They knew about him
+But, they seemed to test his strength
+*They were not trying to overwhelm him, but to gauge his strength
+They wanted to know whether he was careful
+And they wanted to know whether he could react with speed and diligence
+# Title:Ramping up the attack
+# Enemies:5
+# Speed:1
+He knew something was imminent
+*He saw a whole group of them coming in the distance
+This time it was for real
+*He held his bow steady, preparing for the shots
+Then he let loose
+*Arrow after arrow
+His focus was like a bright spot in his mind
+*The arrows fell like hail
+The Dangers fell like wheat during harvest
+*And suddenly, it was all over
+A moment of stillness
+# Title:Runners
+# Enemies:4
+# Speed:3
+He knew he could not continue forever
+*He knew that his calm would eventually run out
+But there were no alternative
+*He could not let it happen
+His place was here, no matter what
+*There were no rest, until he had mastered his calm
+When standing his ground became second nature
+*Then he could finally get some peace
+# Title:The last attack, for now...
+# Enemies:13
+# Speed:1
+*He saw them coming like in a haze
+*For how long had be been letting his arrows loose on the Dangers?
+*He didn't know anymore
+*He wasn't sure that he wanted to know
+*But he had to continue
+*He had managed this far, hadn't he?
+*He could manage one more day
+*He could manage one more year
+*Then he realized
+*He no longer needed to worry
+*He had reached his goal
+*The dangers no longer fazed him
+*And suddenly it was over
+# Title:Aftermath
+# Enemies:1
+# Speed:1
+His vision was hazy as the last Danger approached
+It seemed to try to tell him something
+He couldn't quite distinguish the words
+As it came closer, the whispers got louder
+...proud of you
+You have mastered your mind
+And therefore, you have mastered us
+This is not the end, this is never the end
+*But for now, you can rest
+And then, everything turned white
