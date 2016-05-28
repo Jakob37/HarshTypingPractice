@@ -1,5 +1,7 @@
-﻿# Title:A friendly hint before you start
+﻿--- New entry ---
+# Title:A friendly hint before you start
 Type carefully...
+--- New entry ---
 # Title:The beginning
 # Enemies:0
 Once upon a time, there was a man called Arrow-man
@@ -7,6 +9,7 @@ He was an expert, like no others, at keeping Dangers at bay
 His craft was his precision and care
 One slip, and his people was one step closer to Dangers
 He had to extort extrodinary care, or else all would be lost
+--- New entry ---
 # Title:The first encounter
 # Enemies:1
 # Speed:1
@@ -18,6 +21,7 @@ But he also knew, that he had to make it
 Be careful
 *He let loose
 And it was over
+--- New entry ---
 # Title:Some stillness
 # Enemies:0
 After the first encounter the time passed by
@@ -27,6 +31,7 @@ But he knew that he had to continue honing his skills
 He knew, that one day, he had to take action
 Quickly, with high precision
 He had to continue honing his skills
+--- New entry ---
 # Title:The second encounter
 # Enemies:2
 # Speed:2
@@ -36,6 +41,7 @@ But, they seemed to test his strength
 *They were not trying to overwhelm him, but to gauge his strength
 They wanted to know whether he was careful
 And they wanted to know whether he could react with speed and diligence
+--- New entry ---
 # Title:Ramping up the attack
 # Enemies:5
 # Speed:1
@@ -50,6 +56,7 @@ His focus was like a bright spot in his mind
 The Dangers fell like wheat during harvest
 *And suddenly, it was all over
 A moment of stillness
+--- New entry ---
 # Title:Runners
 # Enemies:4
 # Speed:3
@@ -61,6 +68,7 @@ His place was here, no matter what
 *There were no rest, until he had mastered his calm
 When standing his ground became second nature
 *Then he could finally get some peace
+--- New entry ---
 # Title:The last attack, for now...
 # Enemies:13
 # Speed:1
@@ -77,6 +85,7 @@ When standing his ground became second nature
 *He had reached his goal
 *The dangers no longer fazed him
 *And suddenly it was over
+--- New entry ---
 # Title:Aftermath
 # Enemies:1
 # Speed:1

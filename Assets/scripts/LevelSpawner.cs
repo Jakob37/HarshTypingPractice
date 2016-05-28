@@ -24,8 +24,6 @@ public class LevelSpawner : MonoBehaviour {
             spawn_points.RemoveAt(0);
 
             Spawn();
-
-            Debug.Log("spawn");
         }
 	}
 

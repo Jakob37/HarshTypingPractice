@@ -8,7 +8,7 @@ public class EntryText : MonoBehaviour {
     private bool should_be_punished;
 
     private Text my_text;
-    private TextSources text_sources;
+    private TextSource text_sources;
 
     private string target_text = "This is a target text";
     private string typed_text;
@@ -47,7 +47,7 @@ public class EntryText : MonoBehaviour {
         my_text = GetComponent<Text>();
         my_text.text = "";
 
-        text_sources = GetComponent<TextSources>();
+        text_sources = GetComponent<TextSource>();
         Debug.Log(text_sources);
         target_text = text_sources.GetNextLine();
 	}

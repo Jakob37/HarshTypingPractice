@@ -20,11 +20,7 @@ public class AudioSourceCollection : MonoBehaviour {
 
     public void PlayClip(AudioSourceKey audio_source_key) {
 
-        Debug.Log(audio_clips.Length);
-
         foreach(AudioSourceClip audio_clip_pair in audio_clips) {
-
-            Debug.Log(audio_clip_pair.audio_clip.name);
 
             if (audio_clip_pair.audio_key == audio_source_key) {
                 AudioSource audio_source = GetComponent<AudioSource>();
