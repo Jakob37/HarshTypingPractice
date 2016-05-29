@@ -90,4 +90,8 @@ public class EntryText : MonoBehaviour {
         string visual_text = TextUtils.GenerateVisualText(target_text, typed_text);
         my_text.text = visual_text;
     }
+
+    public void SetVisualText(string visual_text) {
+        my_text.text = visual_text;
+    }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.scripts.story;
+using Assets.scripts.text;
 
 public class LevelManager : MonoBehaviour {
 
@@ -20,11 +21,15 @@ public class LevelManager : MonoBehaviour {
     private StatusText status_text;
     private List<StoryEntry> story_entries;
 
+    private TypingController typing_controller;
+
 	void Start () {
 
         current_game_condition = GameCondition.running;
         archer = GameObject.FindObjectOfType<Archer>();
         status_text = GameObject.FindObjectOfType<StatusText>();
+
+        typing_controller = GameObject.FindObjectOfType<TypingController>();
 
         var my_text_source = GetComponent<TextSource>();
         Debug.Log(my_text_source);
