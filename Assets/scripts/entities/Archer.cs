@@ -10,57 +10,43 @@ public class Archer : MonoBehaviour {
     public int CurrentBowstringCount { get { return current_bowstring_count; } }
 
     private GameObject arrow_counter;
-    private EntryText entry_text;
     private AudioSource shoot_arrow_audio;
 
     private AudioSourceCollection audio_source_collection;
     private LevelManager level_manager;
 
+    public bool HasArrows { get { return current_bowstring_count > 0; } }
+
     private void Awake() {
         current_bowstring_count = start_bowstring_count;
+        shoot_arrow_audio = GetComponent<AudioSource>();
+        audio_source_collection = GetComponent<AudioSourceCollection>();
     }
 
     private void Start () {
-        shoot_arrow_audio = GetComponent<AudioSource>();
-        audio_source_collection = GetComponent<AudioSourceCollection>();
         level_manager = FindObjectOfType<LevelManager>();
-        entry_text = FindObjectOfType<EntryText>();
     }
 
     public int GetBowstringCount() {
         return current_bowstring_count;
     }
 
-    private void Update () {
+    public void PunishError() {
 
-        if (level_manager.IsGameOver) {
+        if (current_bowstring_count <= 0) {
+            Debug.LogWarning("Attempt to punish for error - But no strings left");
             return;
-        }
+        } 
 
-        FireLogic();
-
-        if (entry_text.ShouldBePunished()) {
-            entry_text.PunishmentCompleted();
-            current_bowstring_count -= 1;
-            audio_source_collection.PlayClip(AudioSourceCollection.AudioSourceKey.bow_snap);
-        }
-        else if (entry_text.WasTextEntered()) {
-            audio_source_collection.PlayClip(AudioSourceCollection.AudioSourceKey.key_tap);
-        }
+        audio_source_collection.PlayClip(AudioSourceCollection.AudioSourceKey.bow_snap);
+        current_bowstring_count -= 1;
     }
 
-    private void FireLogic() {
-        bool shoot_press = Input.GetKeyDown(KeyCode.Return);
-        bool has_strings = current_bowstring_count > 0;
-        bool correct_text = entry_text.TextFullyTyped();
-
-        if (shoot_press && has_strings && correct_text) {
-            ShootArrow();
-            entry_text.ResetText();
-        }
+    public void TextEnteredSuccessfully() {
+        audio_source_collection.PlayClip(AudioSourceCollection.AudioSourceKey.key_tap);
     }
 
-    private void ShootArrow() {
+    public void ShootArrow() {
 
         audio_source_collection.PlayClip(AudioSourceCollection.AudioSourceKey.bow_shoot);
         GameObject new_projectile = Instantiate(projectile_prefab) as GameObject;

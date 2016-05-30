@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.scripts.story;
-using Assets.scripts.text;
 
 public class LevelManager : MonoBehaviour {
 
@@ -19,7 +18,7 @@ public class LevelManager : MonoBehaviour {
     public GameCondition CurrentGameCondition { get { return current_game_condition; } }
 
     private StatusText status_text;
-    private List<StoryEntry> story_entries;
+    // private List<StoryEntry> story_entries;
 
     private TypingController typing_controller;
 
@@ -32,9 +31,9 @@ public class LevelManager : MonoBehaviour {
         typing_controller = GameObject.FindObjectOfType<TypingController>();
 
         var my_text_source = GetComponent<TextSource>();
-        Debug.Log(my_text_source);
-        story_entries = my_text_source.GetStoryEntries();
-        Debug.Log(story_entries.Count);
+        // Debug.Log(my_text_source);
+        // story_entries = my_text_source.GetStoryEntries();
+        // Debug.Log(story_entries.Count);
 	}
 
     public bool IsGameOver {

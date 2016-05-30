@@ -15,6 +15,7 @@ namespace Assets.scripts.story {
         private int speed;
         private int health;
         private List<String> story_lines;
+        private int current_line = 0;
 
         public StoryEntry() {
             title = "No title assigned";
@@ -22,6 +23,7 @@ namespace Assets.scripts.story {
             speed = 1;
             health = 1;
             story_lines = new List<String>();
+            current_line = 0;
         }
 
         public void SetTitle(string title) {
@@ -42,6 +44,22 @@ namespace Assets.scripts.story {
 
         public void AddStoryLine(string line) {
             story_lines.Add(line);
+        }
+
+        public string GetCurrentLine() {
+            return story_lines[current_line];
+        }
+
+        public bool HasNextLine() {
+            return (current_line < story_lines.Count - 1);
+        }
+
+        public string GetNextLine() {
+            if (!HasNextLine()) {
+                throw new ArgumentOutOfRangeException("No more lines! Index: " + current_line);
+            }
+            current_line += 1;
+            return GetCurrentLine();
         }
     }
 }

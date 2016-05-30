@@ -23,7 +23,7 @@ public class TextSource : MonoBehaviour {
         current_line = 0;
 
         story_entries = ParseLines(lines);
-        Debug.Log("Entries: " + story_entries.Count + " lines: " + lines.Length);
+        // Debug.Log("Entries: " + story_entries.Count + " lines: " + lines.Length);
     }
 
     private List<StoryEntry> ParseLines(string[] input_lines) {
