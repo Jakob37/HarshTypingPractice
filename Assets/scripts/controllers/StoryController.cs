@@ -21,8 +21,21 @@ public class StoryController : MonoBehaviour {
         current_entry = 0;
     }
 
-    public string GetCurrentLine() {
-        return story_entries[current_entry].GetCurrentLine();
+    //public string GetCurrentLine() {
+    //    return story_entries[current_entry].GetCurrentLine();
+    //}
+
+    public StoryEntry GetCurrentEntry() {
+        return story_entries[current_entry];
+    }
+
+    public StoryEntry GetSpawnEntry() {
+
+        if (!IsNextNewStoryEntry()) {
+            throw new ArgumentException("Next entry is out of bounds!");
+        }
+
+        return story_entries[current_entry + 1];
     }
 
     public bool HasNextLine() {
@@ -31,6 +44,15 @@ public class StoryController : MonoBehaviour {
         }
         else {
             return current_entry < story_entries.Count - 1;
+        }
+    }
+
+    public bool IsNextNewStoryEntry() {
+        if (story_entries[current_entry].HasNextLine()) {
+            return false;
+        }
+        else {
+            return HasNextLine();
         }
     }
 

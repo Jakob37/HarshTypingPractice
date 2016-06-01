@@ -14,6 +14,7 @@ public class LevelManager : MonoBehaviour {
     }
 
     private Archer archer;
+    private LevelSpawner level_spawner;
     private GameCondition current_game_condition;
     public GameCondition CurrentGameCondition { get { return current_game_condition; } }
 
@@ -28,12 +29,10 @@ public class LevelManager : MonoBehaviour {
         archer = GameObject.FindObjectOfType<Archer>();
         status_text = GameObject.FindObjectOfType<StatusText>();
 
-        typing_controller = GameObject.FindObjectOfType<TypingController>();
+        level_spawner = GetComponentInChildren<LevelSpawner>();
+        typing_controller = GetComponentInChildren<TypingController>();
 
         var my_text_source = GetComponent<TextSource>();
-        // Debug.Log(my_text_source);
-        // story_entries = my_text_source.GetStoryEntries();
-        // Debug.Log(story_entries.Count);
 	}
 
     public bool IsGameOver {
@@ -48,6 +47,14 @@ public class LevelManager : MonoBehaviour {
     }
 
     void Update () {
+
+        //Debug.Log(typing_controller.HasSpawnEntry());
+
+        if (typing_controller.HasSpawnEntry()) {
+            StoryEntry spawn_entry = typing_controller.GetSpawnEntry();
+            Debug.Log(spawn_entry);
+            level_spawner.AddStoryEntry(spawn_entry);
+        }
 
         if (current_game_condition == GameCondition.lose_logic) {
             LoseLogic();

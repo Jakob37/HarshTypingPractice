@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Assets.scripts.story;
+using System;
 
 public class TypingController : MonoBehaviour {
 
@@ -15,24 +16,48 @@ public class TypingController : MonoBehaviour {
     private string current_typed_text;
     private string current_target_text;
 
+    private StoryEntry spawn_entry;
+    public bool HasSpawnEntry() {
+        return spawn_entry != null;
+    }
+    public StoryEntry GetSpawnEntry() {
+
+        if (!HasSpawnEntry()) {
+            throw new ArgumentException("No spawn entry!");
+        }
+        var return_object = spawn_entry;
+        spawn_entry = null;
+        return return_object;
+    }
+
     private void Awake() {
         archer = GameObject.FindObjectOfType<Archer>();
         entry_text = GameObject.FindObjectOfType<EntryText>();
         story_controller = GetComponentInChildren<StoryController>();
     }
 
-    void Start () {
+    private void Start () {
         current_typed_text = "";
-        current_target_text = story_controller.GetCurrentLine();
+        current_target_text = story_controller.GetNextLine();
         archer.ShootArrow();
+        spawn_entry = story_controller.GetCurrentEntry();
     }
 
-    void Update () {
+    private void Update () {
 
         if (ShootAction()) {
             archer.ShootArrow();
-            current_target_text = story_controller.GetNextLine();
-            current_typed_text = "";
+
+            if (story_controller.IsNextNewStoryEntry()) {
+                Debug.Log("Next is new story entry!");
+                spawn_entry = story_controller.GetSpawnEntry();
+            }
+
+            if (story_controller.HasNextLine()) {
+
+                current_target_text = story_controller.GetNextLine();
+                current_typed_text = "";
+            }
         }
         else if (EraseAction()) {
             current_typed_text = EraseSingleLetterFromText(current_typed_text);

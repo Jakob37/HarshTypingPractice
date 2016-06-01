@@ -23,7 +23,6 @@ public class TextSource : MonoBehaviour {
         current_line = 0;
 
         story_entries = ParseLines(lines);
-        // Debug.Log("Entries: " + story_entries.Count + " lines: " + lines.Length);
     }
 
     private List<StoryEntry> ParseLines(string[] input_lines) {
@@ -64,17 +63,17 @@ public class TextSource : MonoBehaviour {
     }
 
     private void AssignFieldEntry(StoryEntry entry, string field_key, string field_val) {
-        
+
         // Assign stat received from field to appropriate entry method
 
         switch (field_key) {
-            case "Title":
+            case "# Title":
                 entry.SetTitle(field_val);
                 break;
-            case "Enemies":
+            case "# Enemies":
                 entry.SetEnemies(int.Parse(field_val));
                 break;
-            case "Speed":
+            case "# Speed":
                 entry.SetSpeed(int.Parse(field_val));
                 break;
             default:

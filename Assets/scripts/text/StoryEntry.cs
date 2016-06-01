@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
 namespace Assets.scripts.story {
 
@@ -23,7 +24,7 @@ namespace Assets.scripts.story {
             speed = 1;
             health = 1;
             story_lines = new List<String>();
-            current_line = 0;
+            current_line = -1;
         }
 
         public void SetTitle(string title) {
@@ -32,6 +33,7 @@ namespace Assets.scripts.story {
 
         public void SetEnemies(int nbr_enemies) {
             this.enemies = nbr_enemies;
+            Debug.Log("Enemy count: " + enemies);
         }
 
         public void SetSpeed(int speed) {
@@ -46,7 +48,7 @@ namespace Assets.scripts.story {
             story_lines.Add(line);
         }
 
-        public string GetCurrentLine() {
+        private string GetCurrentLine() {
             return story_lines[current_line];
         }
 
@@ -60,6 +62,10 @@ namespace Assets.scripts.story {
             }
             current_line += 1;
             return GetCurrentLine();
+        }
+
+        public int GetEnemyCount() {
+            return enemies;
         }
     }
 }

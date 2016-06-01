@@ -3,7 +3,7 @@
 Type carefully...
 --- New entry ---
 # Title:The beginning
-# Enemies:0
+# Enemies:1
 Once upon a time, there was a man called Arrow-man
 He was an expert, like no others, at keeping Dangers at bay
 His craft was his precision and care
