@@ -1,6 +1,7 @@
 ﻿--- New entry ---
 # Title:A friendly hint before you start
-Type carefully...
+Type carefully
+Or else you will die
 --- New entry ---
 # Title:The beginning
 # Enemies:1

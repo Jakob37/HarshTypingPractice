@@ -39,7 +39,6 @@ public class TypingController : MonoBehaviour {
     private void Start () {
         current_typed_text = "";
         current_target_text = story_controller.GetNextLine();
-        archer.ShootArrow();
         spawn_entry = story_controller.GetCurrentEntry();
     }
 
