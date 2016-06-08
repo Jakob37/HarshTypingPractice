@@ -20,6 +20,7 @@ public class TypingController : MonoBehaviour {
     public bool HasSpawnEntry() {
         return spawn_entry != null;
     }
+
     public StoryEntry GetSpawnEntry() {
 
         if (!HasSpawnEntry()) {
