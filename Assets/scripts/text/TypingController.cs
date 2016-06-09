@@ -10,6 +10,7 @@ public class TypingController : MonoBehaviour {
     private Archer archer;
     private EntryText entry_text;
     private StoryController story_controller;
+    private TypoEventController typo_event_controller;
 
     // Private attributes
     private List<StoryEntry> story_entries;
@@ -35,6 +36,7 @@ public class TypingController : MonoBehaviour {
         archer = GameObject.FindObjectOfType<Archer>();
         entry_text = GameObject.FindObjectOfType<EntryText>();
         story_controller = GetComponentInChildren<StoryController>();
+        typo_event_controller = GetComponentInChildren<TypoEventController>();
     }
 
     private void Start () {
@@ -44,6 +46,10 @@ public class TypingController : MonoBehaviour {
     }
 
     private void Update () {
+
+        if (typo_event_controller.GetTypoLockActive) {
+            return;
+        }
 
         if (ShootAction()) {
             archer.ShootArrow();
@@ -65,6 +71,10 @@ public class TypingController : MonoBehaviour {
         else {
             string new_typed_text = GetTypedText();
             AssignNewTypedText(new_typed_text);
+
+            if(!IsEnteredTextCorrect()) {
+                PunishTypo();
+            }
         }
 
         SyncVisualText();
@@ -79,21 +89,23 @@ public class TypingController : MonoBehaviour {
                 }
 
                 current_typed_text += c;
-
-                if (IsEnteredTextCorrect()) {
-                    archer.TextEnteredSuccessfully();
-                }
-                else {
-                    archer.PunishError();
-                    current_typed_text = "";
-                    break;
-                }
             }
         }
     }
 
     private bool IsEnteredTextCorrect() {
         return current_target_text.StartsWith(current_typed_text);
+    }
+
+    private void PunishTypo() {
+        if (IsEnteredTextCorrect()) {
+            archer.TextEnteredSuccessfully();
+        }
+        else {
+            archer.PunishError();
+            current_typed_text = "";
+            typo_event_controller.StartTypoLock();
+        }
     }
 
     private bool ShootAction() {
